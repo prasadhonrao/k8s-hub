@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app-deployment
+spec:
+  replicas: 3
+  minReadySeconds: 1
+  progressDeadlineSeconds: 10
+  revisionHistoryLimit: 5
+  strategy:
+    rollingUpdate:
+      maxSurge: 1 # 1 pod can be created over the desired number of pods
+      maxUnavailable: 1 # 1 pod can be unavailable during the update
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - image: thegeekspad/node-app:3.0
+        name: node-app
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

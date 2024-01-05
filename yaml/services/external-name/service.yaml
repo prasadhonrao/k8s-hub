@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: my-nginx-external-name-service
+spec:
+ type: ExternalName
+ externalName: api.nginx.com
+ selector:
+    app: nginx-app
+ ports:
+ - port: 9000

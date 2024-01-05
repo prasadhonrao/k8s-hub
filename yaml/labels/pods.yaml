@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-nginx-pod-v1
+  labels:
+    release: v1
+    env: dev
+spec:
+  containers:
+    - name: my-nginx-container
+      image: nginx
+      resources: 
+        limits:
+          cpu: "100m"
+          memory: "128Mi"
+      ports:
+        - name: http-port
+          containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-nginx-pod-v2
+  labels:
+    release: v2
+    env: dev
+spec:
+  containers:
+    - name: my-nginx-container
+      image: nginx
+      resources: 
+        limits:
+          cpu: "100m"
+          memory: "128Mi"
+      ports:
+        - name: http-port
+          containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-nginx-pod-v3
+  labels:
+    release: v1
+    env: prod
+spec:
+  containers:
+    - name: my-nginx-container
+      image: nginx
+      resources: 
+        limits:
+          cpu: "100m"
+          memory: "128Mi"
+      ports:
+        - name: http-port
+          containerPort: 80

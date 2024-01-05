@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-world-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: hello-world-job-container
+        image: ubuntu
+        command: 
+          - "/bin/bash"  
+          - "-c" 
+          - "/bin/echo Hello from pod $HOSTNAME at $(date)"
+        env:
+          - name: HOSTNAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+      restartPolicy: Never

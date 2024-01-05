@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    version: v1
+    app: nginx-app
+spec:
+  selector:
+    matchLabels:
+      app: nginx-app # match by label in template metadata
+  replicas: 4 # tells deployment to run 4 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+          resources:
+            limits:
+              memory: "128Mi" 
+              cpu: "200m" 
+      nodeSelector: # This is only required if you are using both windows node and linux node in the cluster
+        kubernetes.io/os: linux

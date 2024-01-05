@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-express-hello-world-app-deployment
+  labels:
+    name: node-express-hello-world-app
+    version: v1
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: node-express-hello-world-app
+  template:
+    metadata:
+      labels:
+        app: node-express-hello-world-app
+    spec:
+      containers:
+      - name: node-express-hello-world-app-container
+        image: prasadhonrao/node-express-hello-world-app
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - name: http-port
+          containerPort: 8080

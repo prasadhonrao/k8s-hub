@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-startup-probe
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      resources:
+        limits:
+          cpu: "100m"
+          memory: "128Mi"
+      ports:
+        - name: http-port
+          containerPort: 80
+      startupProbe:
+        httpGet:
+          path: /index.html
+          port: 80
+        initialDelaySeconds: 2
+        periodSeconds: 5

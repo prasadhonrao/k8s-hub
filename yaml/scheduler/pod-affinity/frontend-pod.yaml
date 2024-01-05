@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend-pod
+  labels:
+    app: frontend
+spec:
+  containers:
+    - name: frontend-container
+      image: nginx
+      resources:
+        limits:
+          cpu: "100m"
+          memory: "128Mi"
+      ports:
+        - name: http-port
+          containerPort: 80
+  nodeSelector:
+    kubernetes.io/os: linux

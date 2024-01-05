@@ -1,0 +1,46 @@
+# Create a pod and set individual environment variables from configmap
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-viewer-pod-1
+spec:
+  containers:
+    - name: env-viewer-container
+      image: prasadhonrao/env-viewer
+      env:
+        - name: AUTHOR
+          valueFrom:
+            configMapKeyRef:
+              name: app-config-map
+              key: author
+        - name: COLOR
+          valueFrom:
+            configMapKeyRef:
+              name: app-config-map
+              key: color
+        - name: COUNTRY
+          valueFrom:
+            configMapKeyRef:
+              name: app-config-map
+              key: country
+  nodeSelector:
+    kubernetes.io/os: linux
+--- 
+
+# Create a pod and set all environment variables from configmap
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-viewer-pod-2
+spec:
+  containers:
+    - name: env-viewer-container
+      image: prasadhonrao/env-viewer
+      envFrom:
+        - configMapRef:
+            name: app-config-map
+  nodeSelector:
+    kubernetes.io/os: linux
+

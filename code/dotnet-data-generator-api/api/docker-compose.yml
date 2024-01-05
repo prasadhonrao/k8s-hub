@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: generator:latest
+    ports:
+      - "8090:80"
+    restart: unless-stopped
+  mail:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"

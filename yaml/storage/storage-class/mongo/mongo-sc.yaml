@@ -1,0 +1,7 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner # this indicates that we will have to manually create the PVs. There are different options available for this field depending on the type of storage you are using.
+reclaimPolicy: Retain # The reclaim policy applies to the persistent volumes not the storage class itself. pvs and pvcs that are created using that storage class will inherit the reclaim policy set here.
+volumeBindingMode: WaitForFirstConsumer

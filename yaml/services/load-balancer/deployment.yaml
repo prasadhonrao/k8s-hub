@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      app: nginx-app
+  replicas: 10
+  template:
+    metadata:
+      labels:
+        app: nginx-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+      nodeSelector:
+        kubernetes.io/os: linux

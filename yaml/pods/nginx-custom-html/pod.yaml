@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-custom-html-pod
+  labels:
+    release: v1
+    app: nginx-custom-html
+spec:
+  containers:
+    - name: nginx-custom-html-container
+      image: prasadhonrao/nginx-custom-html
+      resources: 
+        limits:
+          cpu: "100m"
+          memory: "128Mi"
+      ports:
+        - name: http-port
+          containerPort: 80

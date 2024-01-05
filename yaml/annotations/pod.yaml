@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-nginx-pod
+  annotations: 
+    description: "This is a pod that has been created by the Kubernetes API"
+    build-api-version: "v1"
+  labels:
+    app: nginx-app
+spec:
+  containers:
+    - name: my-nginx-container
+      image: nginx
+      resources:
+        limits:
+          cpu: "100m"
+          memory: "128Mi"
+      ports:
+        - name: http-port
+          containerPort: 80
+

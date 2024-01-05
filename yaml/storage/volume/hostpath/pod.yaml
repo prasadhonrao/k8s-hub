@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpath-example-linux
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    volumeMounts:
+    - mountPath: /foo
+      name: hsot-path-volume
+  volumes:
+  - name: hsot-path-volume
+    hostPath:
+      path: /data/foo # directory location on host
+      type: DirectoryOrCreate # this field is optional
