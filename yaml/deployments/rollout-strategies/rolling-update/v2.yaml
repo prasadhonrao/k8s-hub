@@ -21,9 +21,5 @@ spec:
         app: node-app
     spec:
       containers:
-      - image: thegeekspad/node-app:1.0
-        name: node-app
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+      - image: prasadhonrao/node-app:2.0
+        name: node-app-container-2

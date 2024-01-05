@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: nginx-deployment
   labels:
-    version: v1
     app: nginx-app
 spec:
   selector:
@@ -18,9 +17,5 @@ spec:
       containers:
         - name: nginx-container
           image: nginx
-          resources:
-            limits:
-              memory: "128Mi" 
-              cpu: "200m" 
       nodeSelector: # This is only required if you are using both windows node and linux node in the cluster
         kubernetes.io/os: linux

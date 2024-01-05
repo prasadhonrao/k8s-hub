@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-app-canary
+  name: node-app
 spec:
-  replicas: 1
+  replicas: 3
   minReadySeconds: 1
   progressDeadlineSeconds: 10
   revisionHistoryLimit: 5
@@ -15,15 +15,13 @@ spec:
   selector:
     matchLabels:
       app: node-app
+      env: blue
   template:
     metadata:
       labels:
         app: node-app
+        env: blue
     spec:
       containers:
-      - image: thegeekspad/node-app:2.0
+      - image: prasadhonrao/node-app:1.0
         name: node-app
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"

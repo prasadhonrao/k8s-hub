@@ -1,31 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-app-green-deployment
+  name: node-app-canary
 spec:
-  replicas: 3
+  replicas: 1
   minReadySeconds: 1
   progressDeadlineSeconds: 10
   revisionHistoryLimit: 5
   strategy:
     rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
+      maxSurge: 1 # 1 pod can be created over the desired number of pods
+      maxUnavailable: 1 # 1 pod can be unavailable during the update
     type: RollingUpdate
   selector:
     matchLabels:
       app: node-app
-      env: green
   template:
     metadata:
       labels:
         app: node-app
-        env: green
     spec:
       containers:
-      - image: thegeekspad/node-app:2.0
+      - image: prasadhonrao/node-app:2.0
         name: node-app
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"

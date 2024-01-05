@@ -1,12 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: node-app-lb-service
+  name: node-app-service
 spec:
   type: LoadBalancer
   selector:
     app: node-app
-    env: green # change it to green once the test is done
   ports:
   - port: 8080
-    targetPort: 8080
+    targetPort: 8080 # Note that targetPort of node app is 8080, not default 80
