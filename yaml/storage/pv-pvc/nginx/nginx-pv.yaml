@@ -6,7 +6,6 @@ spec:
   capacity:
     storage: 10Gi
   accessModes:
-    - ReadWriteOnce
     - ReadOnlyMany
   local:
     path: /private/tmp/data/db
@@ -14,8 +13,8 @@ spec:
   nodeAffinity:
     required:
       nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - docker-desktop
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - aks-lpool-22778402-vmss000009
