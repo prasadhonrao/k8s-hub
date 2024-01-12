@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mvc-app-db-nodeport-service
+spec:
+  selector:
+    app: mvc-app-db
+  ports:
+    - protocol: TCP
+      port: 1433
+      targetPort: 1433
+      nodePort: 30002
+  type: NodePort

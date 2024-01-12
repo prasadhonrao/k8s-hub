@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mvc-app-deployment
+  labels:
+    app: mvc-app
+spec:
+  selector:
+    matchLabels:
+      app: mvc-app
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: mvc-app
+    spec:
+      containers:
+        - name: mvc-app-container
+          image: prasadhonrao/aspnetmvc-app:latest
+          env:
+            - name: ConnectionStrings__MVCAppDbContext
+              value: Server=mvc-app-db-lb-service;Database=MVCAppDb;User=sa;Password=SuperSecretP@ssw0rd
+              

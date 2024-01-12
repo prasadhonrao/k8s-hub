@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mvc-app-db-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mvc-app-db
+  template:
+    metadata:
+      labels:
+        app: mvc-app-db
+    spec:
+      containers:
+      - name: mvc-app-db-container
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        ports:
+        - containerPort: 1433
+        env:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: MSSQL_SA_PASSWORD
+          value: "P@ssw0rd"        
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
