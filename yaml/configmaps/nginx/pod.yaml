@@ -24,6 +24,10 @@ spec:
             configMapKeyRef:
               name: app-config-map
               key: country
+      resources:
+        limits:
+          cpu: "1"
+          memory: "512Mi"
   nodeSelector:
     kubernetes.io/os: linux
 --- 
@@ -41,6 +45,10 @@ spec:
       envFrom:
         - configMapRef:
             name: app-config-map
+      resources:
+        limits:
+          cpu: "1"
+          memory: "512Mi"
   nodeSelector:
     kubernetes.io/os: linux
 ---
@@ -55,6 +63,10 @@ spec:
   containers:
     - name: nginx-configmap-container
       image: nginx
+      resources:
+        limits:
+          cpu: "1"
+          memory: "512Mi"
       volumeMounts:
         - name: config-volume
           mountPath: /etc/config
