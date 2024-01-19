@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp-color-pod
+spec:
+  containers:
+    - name: webapp-color-pod-container
+      image: prasadhonrao/webapp-color
+      envFrom:
+        - configMapRef:
+            name: color-cm
+      resources:
+        limits:
+          cpu: "1"
+          memory: "512Mi"
+  nodeSelector:
+    kubernetes.io/os: linux
