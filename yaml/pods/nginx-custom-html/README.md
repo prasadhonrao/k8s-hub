@@ -1,6 +1,6 @@
 # NGINX Custom HTML
 
-This is a simple single HTML page application which is used to create container based on thegeekspad/html-hello-world image which replaces the original index.html file used by nginx container.
+This is a simple single HTML page application which is used to create container based on prasadhonrao/html-hello-world image which replaces the original index.html file used by nginx container.
 
 ## Run Instructions
 
