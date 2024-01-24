@@ -18,5 +18,12 @@ spec:
       containers:
         - name: nginx-container
           image: nginx
+          resources:
+            limits:
+              cpu: "1"
+              memory: "500Mi"
+            requests:
+              cpu: "0.5"
+              memory: "200Mi"
       nodeSelector: # This is only required if you are using both windows node and linux node in the cluster
         kubernetes.io/os: linux
