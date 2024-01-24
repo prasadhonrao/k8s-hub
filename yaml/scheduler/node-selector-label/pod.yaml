@@ -1,21 +1,20 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: node-selector-label-pod
+  name: nginx-pod
   labels:
-    app: node-selector-label-app
+    release: v1
+    app: nginx-app
 spec:
   containers:
-    - name: node-selector-label-container
-      image: python
-      resources: # requests and limits for resources. This is optional.
+    - name: nginx-container
+      image: nginx:alpine
+      resources:
         limits:
           cpu: "100m"
           memory: "128Mi"
-      ports:
-        - name: http-port
-          containerPort: 80
-      command: ["cmd"]
-      args: ["/k", "python", "-c", "print('Hello, Windows Pod')"]
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
   nodeSelector:
-    os: linux # This is the label we added to the node
+    os: myos # This is the label we added to the node
