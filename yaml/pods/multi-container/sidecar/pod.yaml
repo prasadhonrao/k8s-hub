@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: multi-container-pod
+  name: sidecar-pattern-pod
 spec:
   containers:
-  - name: producer
+  - name: producer # this is the main container
     image: ubuntu
     resources:
       limits:
@@ -15,7 +15,7 @@ spec:
     volumeMounts:
     - name: web-content-volume
       mountPath: /var/log
-  - name: consumer
+  - name: consumer # this is the sidecar container
     image: nginx
     resources:
       limits:
