@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    release: v1
+    app: nginx-app
+spec:
+  securityContext:
+    runAsUser: 1010
+  containers:
+    - name: nginx-container
+      image: nginx:alpine
+      resources:
+        limits:
+          cpu: "100m"
+          memory: "128Mi"
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
