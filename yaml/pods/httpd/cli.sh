@@ -1,3 +1,5 @@
+# -----------------------------Imperative-------------------------------------- #
+
 # Create container using Apache Web Server httpd
 kubectl run httpd-pod --image=httpd:2.4.38 --port=80 
 
@@ -24,3 +26,7 @@ exit
 
 # Forward the port and check updated web page
 kubectl port-forward httpd 8080:80
+
+# -----------------------------Declarative-------------------------------------- #
+
+# TODO

@@ -9,6 +9,10 @@ spec:
   - command: ["sleep", "3200"]
     image: busybox
     name: admin-pod
+    resources:
+      limits:
+        cpu: "0.5"
+        memory: "512Mi"
     securityContext:
       capabilities:
         add: ["SYS_TIME"]

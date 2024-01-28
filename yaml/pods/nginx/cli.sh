@@ -50,7 +50,7 @@ kubectl edit -f pod.yaml
 kubectl port-forward nginx-pod 8080:80
 
 # Access the pod using service
-# TODO
+curl localhost:8080
 
 # Delete the pod
 kubectl delete -f pod.yaml
