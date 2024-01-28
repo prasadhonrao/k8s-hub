@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: webapp-color-pod-container
-      image: prasadhonrao/webapp-color
+      image: prasadhonrao/python-flask-webapp-color
       envFrom:
         - configMapRef:
             name: color-cm

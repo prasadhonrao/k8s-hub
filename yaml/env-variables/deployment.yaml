@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: node-env-viewer-container
-        image: prasadhonrao/node-env-viewer:latest
+        image: prasadhonrao/js-node-env-viewer:latest
         imagePullPolicy: IfNotPresent
         resources:
           limits:

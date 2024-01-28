@@ -50,7 +50,7 @@ kubectl port-forward pod/webapp-red-color-pod 8080:8080
 kubectl delete pod webapp-red-color-pod
 
 # Create a pod with random color
-kubectl run webapp-random-color-pod --image=prasadhonrao/webapp-color 
+kubectl run webapp-random-color-pod --image=prasadhonrao/python-flask-webapp-color 
 
 # Forward the port
 kubectl port-forward pod/webapp-random-color-pod 8080:8080

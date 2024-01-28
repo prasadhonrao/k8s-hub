@@ -1,21 +1,30 @@
+# Summary: This YAML file defines a Kubernetes Pod named "my-nginx-pod" with annotations and labels.
+# The Pod runs an Nginx container and specifies resource limits for CPU.
+
 apiVersion: v1
 kind: Pod
+
 metadata:
   name: my-nginx-pod
-  annotations: 
-    description: "This is a pod that has been created by the Kubernetes API"
-    build-api-version: "v1"
+  annotations:
+    # A description of the pod
+    description: 'This is a pod that has been created by the Kubernetes API'
+    # The build API version used to create the pod
+    build-api-version: 'v1'
   labels:
     app: nginx-app
+
 spec:
   containers:
     - name: my-nginx-container
       image: nginx
       resources:
         limits:
-          cpu: "100m"
-          memory: "128Mi"
+          # The CPU limit for the container
+          cpu: '100m'
+          # The memory limit for the container
+          memory: '128Mi'
       ports:
         - name: http-port
+          # The port number exposed by the container
           containerPort: 80
-

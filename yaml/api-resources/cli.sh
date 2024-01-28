@@ -1,3 +1,8 @@
+# This script demonstrates various commands related to Kubernetes API resources.
+# It includes commands to get all API resources, get API resources for a specific API group,
+# get API resources with short names, explain the structure of a pod resource,
+# create a pod using kubectl run, get pods, and make API requests using curl.
+
 # Get all the api resources
 kubectl api-resources
 
@@ -24,8 +29,7 @@ kubectl get pods -v 8
 kubectl get pod my-nginx-pod -v 9
 
 # Use curl to make api request
-kubectl proxy & 
+kubectl proxy &
 curl https://localhost:8001/api/v1/namespaces/default/pods/my-nginx-pod 
 fg
 ctrl + c
-
