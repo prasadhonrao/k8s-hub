@@ -24,6 +24,13 @@ spec:
             configMapKeyRef:
               name: app-config-map
               key: country
+      resources:
+        limits:
+          cpu: "1"
+          memory: "512Mi"
+        requests:
+          cpu: "0.5"
+          memory: "256Mi"
   nodeSelector:
     kubernetes.io/os: linux
 --- 
@@ -41,6 +48,13 @@ spec:
       envFrom:
         - configMapRef:
             name: app-config-map
+      resources:
+        limits:
+          cpu: "1"
+          memory: "512Mi"
+        requests:
+          cpu: "0.5"
+          memory: "256Mi"
   nodeSelector:
     kubernetes.io/os: linux
 
