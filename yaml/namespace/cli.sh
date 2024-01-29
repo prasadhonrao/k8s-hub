@@ -24,7 +24,7 @@ kubectl delete namespace dev-namespace
 # -----------------------------Declarative-------------------------------------- #
 
 # Create a namespace using declarative format
-kubectl apply -f dev-namespace.yaml
+kubectl apply -f dev-ns.yaml
 
 # Create a pod with namespace
 kubectl apply -f nginx-pod-dev-ns.yaml
@@ -33,7 +33,7 @@ kubectl apply -f nginx-pod-dev-ns.yaml
 kubectl get pods --namespace=dev-namespace
 
 # Delete a namespace
-kubectl delete -f dev-namespace.yaml
+kubectl delete -f dev-ns.yaml
 
 # Get all namespaces
 kubectl get namespaces

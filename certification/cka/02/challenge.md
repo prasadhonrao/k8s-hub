@@ -1,4 +1,4 @@
-# CKA Certification Challenge 1
+# CKA Certification Challenge 2
 
 ## Challenge Details
 
