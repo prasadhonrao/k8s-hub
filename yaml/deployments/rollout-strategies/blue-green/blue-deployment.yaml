@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-app
+  name: node-app-deployment
 spec:
   replicas: 3
   minReadySeconds: 1
@@ -23,5 +23,12 @@ spec:
         env: blue
     spec:
       containers:
-      - image: prasadhonrao/node-app:1.0
+      - image: prasadhonrao/js-node-app:1.0
         name: node-app
+        resources:
+          limits:
+            cpu: "1"
+            memory: "512Mi"
+          requests:
+            cpu: "0.5"
+            memory: "256Mi"
