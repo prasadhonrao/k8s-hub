@@ -16,3 +16,5 @@ spec:
         requests:
           cpu: "100m"
           memory: "128Mi"
+  nodeSelector:
+    kubernetes.io/os: linux

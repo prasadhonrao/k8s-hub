@@ -21,6 +21,12 @@ curl localhost:8080
 # Delete the pod
 kubectl delete pod nginx-pod
 
+# Generate the YAML file
+kubectl run nginx-pod --image=nginx --dry-run=client -o yaml > pod2.yaml
+
+# Delete the generated YAML file
+rm pod2.yaml
+
 # -----------------------------Declarative-------------------------------------- #
 
 # Validate the YAML file
