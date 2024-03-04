@@ -1,10 +1,10 @@
 # -----------------------------Imperative-------------------------------------- #
 
-# Create the pod
+# Create the pod with nginx image
 kubectl run nginx-pod --image=nginx
 
 # Get all pods
-kubectl get pods
+kubectl get pods -w
 
 # Get all pods with more details
 kubectl get pods -o wide

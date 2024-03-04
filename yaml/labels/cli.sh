@@ -38,6 +38,6 @@ kubectl label pod --all tier=premium --overwrite
 # Perform bulk delete operation based on label
 kubectl delete pod -l tier=premium
 
-# Delete all pods
+# Delete labelled pods
 kubectl delete -f pods.yaml
-kubectl delete pods --all
+
