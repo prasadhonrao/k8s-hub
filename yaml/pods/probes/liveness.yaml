@@ -17,9 +17,10 @@ spec:
         httpGet:
           path: /index.html
           port: 80
-        initialDelaySeconds: 15
-        timeoutSeconds: 2
-        periodSeconds: 5
-        failureThreshold: 1
+        initialDelaySeconds: 15 # wait 15 seconds before performing the first probe
+        timeoutSeconds: 2 # wait 2 seconds for the probe to respond
+        periodSeconds: 5 # perform the probe every 5 seconds
+        failureThreshold: 1 # consider the probe as failed after 1 failed attempt
+        successThreshold: 1 # consider the probe as successful after 1 successful attempt 
   nodeSelector:
     kubernetes.io/os: linux

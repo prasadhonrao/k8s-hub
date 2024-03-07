@@ -6,6 +6,8 @@ metadata:
     release: v1
     app: nginx-app
 spec:
+  terminationGracePeriodSeconds: 10 # Default is 30
+  restartPolicy: Always # Always, OnFailure, Never
   containers:
     - name: nginx-container
       image: nginx:alpine
