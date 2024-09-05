@@ -10,13 +10,13 @@ spec:
   restartPolicy: Always # Always, OnFailure, Never
   containers:
     - name: nginx-container
-      image: nginx:alpine
+      image: nginx
       resources:
         limits:
-          cpu: "100m"
-          memory: "128Mi"
+          cpu: '100m'
+          memory: '128Mi'
         requests:
-          cpu: "100m"
-          memory: "128Mi"
+          cpu: '100m'
+          memory: '128Mi'
   nodeSelector:
     kubernetes.io/os: linux
