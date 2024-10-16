@@ -1,11 +1,11 @@
 # Build the image
-docker build -t nginx-custom-html .
+docker build -t prasadhonrao/nginx-custom-html .
 
 # Check image status
-docker image history nginx-custom-html
+docker image history prasadhonrao/nginx-custom-html
 
 # Create a container
-docker run --name nginx-custom-html --rm nginx-custom-html
+docker run --name nginx-custom-html --rm -p 80:80 prasadhonrao/nginx-custom-html
 
 # Exec into the container and check th HTML file
 docker exec -it nginx-custom-html sh
@@ -18,11 +18,3 @@ docker ps
 
 # Check all containers
 docker ps -a
-
-# Publish image to the registry
-docker tag nginx-custom-html:latest <your-registry>/nginx-custom-html:latest
-docker push <your-registry>/nginx-custom-html:latest
-
-# Publish image to prasadhonrao namespace in Docker Hub
-docker tag nginx-custom-html:latest prasadhonrao/nginx-custom-html:latest
-docker push prasadhonrao/nginx-custom-html:latest
