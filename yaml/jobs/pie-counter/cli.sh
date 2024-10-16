@@ -1,5 +1,8 @@
 # -----------------------------Declarative-------------------------------------- #
 
+# Get all API resources to check if Job is API Version (grouping)
+kubectl api-resources
+
 # Create the job
 kubectl apply -f pie-counter-job.yaml
 

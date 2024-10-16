@@ -4,8 +4,15 @@ metadata:
   name: azure-managed-disk-pod
 spec:
   containers:
-    - name: newpod
+    - name: azure-managed-disk-container
       image: nginx:latest
+      resources:
+        limits:
+          memory: '512Mi'
+          cpu: '500m'
+        requests:
+          memory: '256Mi'
+          cpu: '250m'
       volumeMounts:
         - mountPath: '/mnt/azure'
           name: volume

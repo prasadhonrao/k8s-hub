@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: echo-job
+spec:
+  completions: 5 # Number of completions to run before marking the job as successful
+  parallelism: 3 # Number of pods to run in parallel
+  backoffLimit: 4 # Number of retries before marking the job as failed
+  activeDeadlineSeconds: 10 # How many seconds to wait for the job before marking it as Failed
+  ttlSecondsAfterFinished: 120 # How many seconds to wait before deleting the job
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: echo-job-container
+          image: alpine:latest
+          command: ['echo', "Let's smash some avocados!"]

@@ -1,1 +1,25 @@
-# TODO
+# Give me an example of a pod that uses an Azure File volume for storage.
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: azure-file-pod
+# spec:
+#   containers:
+#     - name: azure-file-volume
+#       image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+#       ports:
+#         - containerPort: 80
+#       volumeMounts:
+#         - name: azure
+#           mountPath: /usr/share/nginx/html
+#   volumes:
+#     - name: azure
+#       azureFile:
+#         secretName: azure-secret
+#         shareName: myshare
+#         readOnly: false
+#         storageAccountName: mystorageaccount
+#         storageAccountKey: mykey
+#         nfsServer: mystorageaccount.file.core.windows.net
+# The volume type is azureFile. The secretName field references a secret that contains the storage account name and storage account key. The shareName field is the name of the Azure File share. The readOnly field specifies whether the volume is read-only. The storageAccountName field is the name of the Azure storage account. The storageAccountKey field is the access key of the Azure storage account. The nfsServer field is the DNS name of the Azure storage account.
