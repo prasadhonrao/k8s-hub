@@ -1,5 +1,5 @@
 # Get AKS extension preview
-az extension list-available -o table | grep -e aks-preview
+az extension list-available -o table | grep -i -e installed -e aks-preview
 
 # Install AKS extension preview
 az extension add --name aks-preview
